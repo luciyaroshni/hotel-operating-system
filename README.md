@@ -1,0 +1,2 @@
+# hotel-operating-system
+Hotel operating system is developed using python django framework and postgreSQL. Hotel Operating System used to manage all the day to day activities of a hotel or resort. They are computerized system that facilitate the management of properties and personnel through a single piece of software. They replaced old-fashioned and paper based method that tend to be both cumbersome and inefficient. Here I provide fully customized centralized system to organize, schedule and perform the day to day functions and transactions of a hotel.
