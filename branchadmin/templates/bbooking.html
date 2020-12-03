@@ -1,0 +1,1378 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% load static %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
+  <meta name="author" content="Creative Tim">
+
+  <title>Argon</title>
+  <!-- Favicon -->
+  <link rel="icon" href="{% static 'assets/img/brand/favicon.png' %}" type="image/png">
+  <!-- Fonts -->
+  <link rel="stylesheet" href="{% static 'assets/css/font.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/date.css' %}">
+  <!-- Icons -->
+  <link rel="stylesheet" href="{% static 'assets/vendor/nucleo/css/nucleo.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'assets/vendor/@fortawesome/fontawesome-free/css/all.min.css' %}" type="text/css">
+  <!-- Page plugins -->
+  <!-- Argon CSS -->
+  <link rel="stylesheet" href="{% static 'assets/css/argon.css' %}" type="text/css">
+</head>
+
+<body>
+  <!-- Sidenav -->
+  <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
+    <div class="scrollbar-inner">
+      <!-- Brand -->
+      <div class="sidenav-header  align-items-center">
+        <a class="navbar-brand" href="javascript:void(0)">
+          <img src="{% static 'assets/img/brand/blue.png' %}" class="navbar-brand-img" alt="...">
+        </a>
+      </div>
+      <div class="navbar-inner">
+        <!-- Collapse -->
+        <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+          <!-- Nav items -->
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link " href="bindex">
+              <i class="ni ni-tv-2 text-primary"></i>Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="bbooking">
+                <i class="ni ni-planet text-orange"></i>
+                <span class="nav-link-text">Booking</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="broom">
+                <i class="ni ni-pin-3 text-primary"></i>
+                <span class="nav-link-text">Rooms</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="bagent">
+                <i class="ni ni-single-02 text-yellow"></i>
+                <span class="nav-link-text">Agent</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="bguest">
+                <i class="ni ni-bullet-list-67 text-default"></i>
+                <span class="nav-link-text">Guest</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="bsetting">
+                <i class="ni ni-send text-dark"></i>
+                <span class="nav-link-text">Settings</span>
+              </a>
+            </li>
+          </ul>
+          <!-- Divider -->
+          <hr class="my-3">
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- Main content -->
+  <div class="main-content" id="panel">
+    <!-- Topnav -->
+    <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- Search form -->
+          <ul class="navbar-nav align-items-center  ml-md-auto ">
+            <li class="nav-item dropdown"></li>
+
+          </ul>
+          <ul class="navbar-nav align-items-center  ml-auto ml-md-0 ">
+            <li class="nav-item dropdown">
+              <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="media align-items-center">
+                  <span class="avatar avatar-sm rounded-circle">
+                    <img alt="Image placeholder" src="{% static 'assets/img/theme/team-4.jpg' %}">
+                  </span>
+                  <div class="media-body  ml-2  d-none d-lg-block">
+                    <span class="mb-0 text-sm  font-weight-bold">{{usersession.badminname}}</span>
+                  </div>
+                </div>
+              </a>
+              <div class="dropdown-menu  dropdown-menu-right ">
+                <div class="dropdown-header noti-title">
+                  <h6 class="text-overflow m-0">Hi {{usersession.badminname}} !!</h6>
+                </div>
+
+                <div class="dropdown-divider"></div>
+              <a href="bsettings" class="dropdown-item">
+                  <i class="ni ni-user-run"></i>
+                  <span>Profile</span>
+                </a>
+
+                <div class="dropdown-divider"></div>
+                <a href="blogout" class="dropdown-item">
+                  <i class="ni ni-user-run"></i>
+                  <span>Logout</span>
+                </a>
+
+
+             </div>
+
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Header -->
+    <!-- Header --><!-- Page content -->
+<style>
+.bbutton {
+	margin-left: 20px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+.con {
+	border: 1px solid #CCC;
+	margin-left: 30px;
+	margin-top: 40px;
+	font-family:'Times New Roman', Times, serif;
+	margin-right: 30px;
+	background-color: Dodgerblue;
+	color: #FFF;
+}
+
+.co {
+	border: 1px solid #CCC;
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-right: 10px;
+	background-color:#FFF;
+}
+
+.tab {
+  overflow: hidden;
+  border: 1px solid lightblue;
+  background-color: Dodgerblue;
+  margin-left:30px;
+  margin-right:30px;
+  margin-top: 40px;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: lightblue ;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ddd;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+  margin-left:30px;
+  margin-right:30px;
+}
+</style>
+      <p class="p"></p>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+      <form method="POST" id="">
+<div class="con" style="margin-top:30px;">
+               <h3 style="color:white; text-align:center; ">Agent Details:</h3>
+                </div>
+{% csrf_token %}
+		<div class="pl-lg-4">
+                  <div class="row" style="margin-top:25px; margin-left:15px; margin-right:15px; margin-bottom:15px;">
+
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <select name = "agid" class="form-control">
+            <option><-- Select Agent ID --></option>
+             {% for ag in agentob %}
+            <option value="{{ag.agentid}}">{{ag.agentid}}</option>
+             {% endfor %}
+         </select>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                  <button type="submit" class="btn btn-round btn-primary" name="searchbag">SEARCH
+        			</button>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+           <div class="pl-lg-4">
+               <div class="row" style="margin-top:25px; margin-left:15px; margin-right:15px; margin-bottom:15px;">
+                   <div class="col-lg-4">
+                      <div class="form-group">
+                          {% for age in agc %}
+                        <input type="text" name="agid1" class="form-control" value="{{age.agentid}}">
+                          {% endfor %}
+                      </div>
+                    </div>
+                          <div class="col-lg-4">
+                      <div class="form-group">
+                          {% for age in agc %}
+                        <input type="text" name="agname"  class="form-control" value="{{age.agentname}}">
+                          {% endfor %}
+                      </div>
+                    </div>
+
+                          <div class="col-lg-4">
+                      <div class="form-group">
+                          {% for age in agc %}
+                        <input type="text" name="agcon" class="form-control" value="{{age.agentcontactno}}">
+                          {% endfor %}
+                      </div>
+                    </div>
+               </div>
+
+           </div>
+
+
+                   <div class="con">
+               <h3 style="color:white; text-align:center;">Customer Details:</h3>
+                </div>
+
+
+                <h6 class="heading-small text-muted mb-4" style="margin-top:25px; margin-left:50px; margin-right:30px;">Basic information</h6>
+
+                <div class="pl-lg-4">
+                  <div class="row" style="margin-right:25px; margin-left:20px">
+
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="form-control-label">Full name</label>
+                        <input type="text" name="bfname" id="firstname"  class="form-control" placeholder="Full Name">
+                          <span id="na1" style="color:blue"></span>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="form-control-label" >Contact No</label>
+                        <input type="text" name="bcont" id="guestcontact"  class="form-control" maxlength="10" placeholder="Contact Number">
+                          <span id="n1" style="color:blue"></span>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="form-control-label" >Email id</label>
+                        <input type="email" name="bemailid" id="emailid"  class="form-control" placeholder="Emailid@mail.com">
+
+                      </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="form-control-label" >Age:</label>
+                        <input type="text" name="bage" id="bage" maxlength="2"  class="form-control" placeholder="Age">
+                          <span id="n2" style="color:blue"></span>
+                      </div>
+                      </div>
+
+                      <div class="col-lg-4" style="margin-top:25px;">
+                      <div class="form-group">
+                       <label>Gender: </label>
+                        <input type="radio" id="male" name="bgender" value="Male"><label for="male" class="form-control-label">Male</label>
+
+<input type="radio" id="female" name="bgender" value="Female">
+<label for="female">Female</label>
+<input type="radio" id="other" name="bgender" value="Others">
+<label for="other">Other</label>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                      <label class="form-control-label" >Marital Status</label>
+                        <select name = "bmard" class="form-control">
+            <option><-- Select --></option>
+            <option value="Single">Unmarried</option>
+            <option value = "Married">Married</option>
+            <option value = "Widow">Widow</option>
+
+         </select>
+                      </div>
+                    </div>
+
+                      <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="form-control-label" >Address:</label>
+                        <input type="text"  name="baddress" id="address" class="form-control">
+                      </div>
+                      </div>
+
+                      <div class="col-lg-4">
+                      <div class="form-group">
+                 <label class="form-control-label">City</label>
+                        <input type="text" id="city" name="bcity" class="form-control">
+                          <span id="n3" style="color:blue"></span>
+                           </div>
+                    </div>
+
+                  <div class="col-lg-4">
+                      <div class="form-group">
+                 <label class="form-control-label" >Country</label>
+                       <input type="text" id="country" name="bcountry" class="form-control">
+                          <span id="n4" style="color:blue"></span>
+                      </div>
+                    </div>
+
+
+
+
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="form-control-label" >Pincode:</label>
+                        <input type="text" name="bpincode" id="pincode" maxlength="6" class="form-control" placeholder="Pincode">
+                          <span id="n5" style="color:blue"></span>
+                      </div>
+                    </div>
+
+
+                 </div></div>
+
+               <div class="con">
+               <h3 style="color:white; text-align:center;">Booking Information:</h3>
+                </div>
+
+
+
+          <div class="row" style=" background: #82a3c4; margin-top:10px; margin-left:10px; margin-right:10px; ">
+
+<!-- ROYAL SUITE  TITLE ROW--- BEG ---------------------------------------------------------------------------------------------- -->
+                                        <div class="col"
+                                             style="border-right: solid white 5px; color: white;margin-right: 5px;text-align: center">
+                                            <div style="text-align: center;position: relative;top: 25%">
+                                                <label style="font-size: 16px;font-weight: bold">ROYAL
+                                                    SUITE</label>{% for royal in roysuiteval %}
+                                                 <label>( {{royal.catrate}})</label>
+                                            {% endfor %}
+                                            </div>
+                                        </div>
+<!-- ROYAL SUITE TITLE ROW--- END --------------------------------------------------------------------------- -->
+
+
+
+
+<!-- PREMIUM SUITE TITLE ROW--- BEG ------------------------------------------------------------------------- -->
+                                        <div class="col"
+                                             style="border-right: solid white 5px; color: white;margin-right: 5px;text-align: center">
+                                            <div style="text-align: center;position: relative;top: 25%">
+                                                <label style="font-size: 16px;font-weight: bold">PREMIUM
+                                                    SUITE</label>{% for premium in presuitval %}
+                                                 <label>({{premium.catrate}})</label>
+                                            {% endfor %}
+                                            </div>
+                                        </div>
+<!-- PREMIUM SUITE TITLE ROW--- END --------------------------------------------------------------------------- -->
+
+
+
+
+<!-- EXCECUTIVE SUITE TITLE ROW--- BEG ------------------------------------------------------------------------ -->
+                                        <div class="col"
+                                             style="border-right: solid white 5px; color: white;margin-right: 5px;text-align: center">
+                                            <div style="text-align: center;position: relative;top: 25%">
+                                                <label style="font-size: 16px;font-weight: bold">EXECUTIVE
+                                                    SUITE</label>{% for execuit in exesuitval %}
+                                                 <label>({{execuit.catrate}})</label>
+                                            {% endfor %}
+                                            </div>
+                                        </div>
+<!-- EXCECUTIVE SUITE TITLE ROW--- END ------------------------------------------------------------------------ -->
+
+
+
+
+<!-- TENT CAMPING TITLE ROW--- BEG ------------------------------------------------------------------------ -->
+                                        <div class="col"
+                                             style=" color: white;margin-right: 5px;text-align: center">
+                                            <div style="text-align: center;position: relative;top: 25%">
+                                                <label style="font-size: 16px;font-weight: bold">TENT
+                                                    CAMPING</label>{% for tensuit in tensuiteval %}
+                                                 <label>({{tensuit.catrate}})</label>
+                                            {% endfor %}
+                                            </div>
+                                        </div>
+<!-- EXCECUTIVE SUITE TITLE ROW--- END ------------------------------------------------------------------- -->
+                                    </div>
+
+
+
+
+
+
+
+
+                                    <div class="row"
+                                         style="margin-bottom: 20px; background: #82a3c4;padding: 10px" ondblclick="passvaluetobtn1()"
+                                         onclick="passvaluetobtn1()">
+<!-- ROYAL SUITE ROOM NO BOX--- BEG ------------------------------------------------------------------- -->
+                                        <div class="col" style="background: white;margin-right: 5px">
+                                            <div class="row" style="padding-left: 15px;padding-top: 10px;" ondblclick="document.getElementById('selectedrooms').value=document.getElementById('p1').innerText"
+                                                 onclick="document.getElementById('selectedrooms').value=document.getElementById('p1').innerText">
+                                                {% for item in roomob1 %}
+                                                    <input type="button" id="demo" class="a"
+                                                            ondblclick="removeLi1({{ item.roomid }})"
+                                                           onclick="addTextNode1({{ item.roomid }});"
+                                                           value="{{ item.roomid }}">
+
+                                                {% endfor %}
+                                                {% for item in roysuiteval %}
+                                                <input id="sumval" value="{{ item.catrate }}" style="width: 120px" hidden >
+                                            {% endfor %}
+                                                <input id="sum" style="width: 120px" hidden>
+                                                <p id="p11"hidden ></p>
+
+
+                                                <p id="p1" hidden></p>
+                                            </div>
+                                        </div>
+<!-- ROYAL SUITE ROOM NO BOX--- END ------------------------------------------------------------------- -->
+
+
+
+
+<!-- PREMIUM SUIT ROOM NO BOX--- BEG ------------------------------------------------------------------- -->
+                                        <div class="col" style="background: white;margin-right: 5px">
+
+                                            <div class="row" ondblclick="document.getElementById('selectedrooms').value=document.getElementById('p1').innerText"
+                                                  onclick="document.getElementById('selectedrooms').value=document.getElementById('p1').innerText"
+                                                 style="padding-left: 15px;padding-top: 10px;padding-bottom: 10px">
+                                                {% for item in roomob2 %}
+                                                     <input type="button"
+                                                           class="a"
+                                                           ondblclick="removeLi2({{ item.roomid }})"
+                                                           onclick="addTextNode2({{ item.roomid }});"
+                                                           value="{{ item.roomid }}">
+                                                {% endfor %}
+                                                {% for item in presuitval %}
+                                                <input id="sumval2" value="{{ item.catrate }}" style="width: 120px" hidden>
+                                                {% endfor %}
+                                                <input id="sum2" style="width: 120px" hidden>
+
+                                                <p id="p12" hidden></p>
+
+                                            </div>
+                                        </div>
+<!-- PREMIUM SUIT ROOM NO BOX--- END ------------------------------------------------------------------- -->
+
+
+
+
+<!-- EXECUTIVE SUITE ROOM NO BOX--- BEG ------------------------------------------------------------------- -->
+                                        <div class="col" style="background: white;margin-right: 5px">
+                                            <div class="row" ondblclick="document.getElementById('selectedrooms').value=document.getElementById('p1').innerText"
+                                                 onclick="document.getElementById('selectedrooms').value=document.getElementById('p1').innerText"
+                                                 style="padding-left: 15px;padding-top: 10px;padding-bottom: 10px">
+                                                {% for item in roomob3 %}
+                                                    <input type="button"
+                                                           class="a"
+                                                           ondblclick="removeLi3({{ item.roomid }})"
+                                                           onclick="addTextNode3({{ item.roomid }});"
+                                                           value="{{ item.roomid }}">
+                                                {% endfor %}
+                                                {% for item in exesuitval %}
+                                                <input id="sumval3" value="{{ item.catrate }}" style="width: 120px" hidden>
+                                            {% endfor %}
+                                                <input id="sum3" style="width: 120px" hidden>
+
+                                            <p id="p13" hidden></p>
+                                            </div>
+                                        </div>
+<!-- EXECUTIVE SUITE ROOM NO BOX--- END ------------------------------------------------------------------- -->
+
+
+
+
+<!-- TENT CAMPING ROOM NO BOX--- BEG ------------------------------------------------------------------- -->
+                                        <div class="col" style="background: white;margin-right: 5px">
+                                            <div class="row" ondblclick="document.getElementById('selectedrooms').value=document.getElementById('p1').innerText"
+                                                 onclick="document.getElementById('selectedrooms').value=document.getElementById('p1').innerText"
+                                                 style="padding-left: 15px;padding-top: 10px;padding-bottom: 10px">
+                                                {% for item in roomob4 %}
+                                                    <input type="button"
+                                                           class="a"
+                                                           ondblclick="removeLi4({{ item.roomid }})"
+                                                           onclick="addTextNode4({{ item.roomid }});"
+                                                           value="{{ item.roomid }}">
+                                                {% endfor %}
+                                                {% for item in tensuiteval %}
+                                                <input id="sumval4" value="{{ item.catrate }}" style="width: 120px" hidden>
+                                            {% endfor %}
+                                                <input id="sum4" style="width: 120px" hidden>
+
+                                            <p id="p14" hidden></p>
+                                            </div>
+                                        </div>
+<!-- TENT CAMPING ROOM NO BOX--- END ------------------------------------------------------------------- -->
+
+
+
+
+
+                                    </div>
+
+
+
+
+
+
+
+
+
+
+
+                <div class="row" style="margin-left:30px; margin-right:30px;">
+
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="form-control-label" style="margin-top:20px;">Room No</label>
+                        <input type="text" name="selectedrooms"  id="selectedrooms" class="form-control" oninput="test()" readonly >
+
+                      </div>
+                     </div>
+
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="form-control-label"  style="margin-top:20px;">No of Rooms</label>
+                        <input type="text" class="form-control" name="numberofrooms" id="numberofrooms" onchange="checkvalue()" readonly style="background: white"
+                                                                    oninput="maxLengthCheck(this)" maxlength="3" >
+                          <input id="d" hidden
+                                                       onload="document.getElementById(this).value=document.getElementById('p1').innerText">
+                                                {#                                                        <input id="test" onkeyup="test();">#}
+                                                <input name="bkid" value="{{ bookingid }}" hidden>
+                      </div>
+                    </div>
+
+
+                      <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="form-control-label"  style="margin-top:20px;">No of Adults</label>
+                        <input type="text" name="numberofadults" id="numberofadults" onkeypress="return isNumberKey(event)" oninput="maxLengthCheck(this)" maxlength="3" class="form-control" placeholder="No of Adults">
+                      </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="form-control-label" >No of Childrens</label>
+                        <input type="text" name="numberofchildrens" id="numberofchildrens" onkeypress="return isNumberKey(event)"
+                                                                    oninput="maxLengthCheck(this)" maxlength="3"  class="form-control" >
+                      </div>
+                    </div>
+
+                     <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="form-control-label" >Proof Submitted</label>
+                        <select name = "proof" class="form-control">
+            <option><-- Select --></option>
+            <option value = "Passport">Passport</option>
+            <option value = "Adhar card">Adhar Card</option>
+             <option value = "ID">ID</option>
+         </select>
+                      </div>
+                     </div>
+
+                 <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="form-control-label">GRC Number</label>
+                        <input type="text" name="grcno" id="grc" class="form-control">
+                          <span id="n7" style="color:blue"></span>
+                      </div>
+                    </div>
+
+                 <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="form-control-label" >Check-in</label>
+                        <input type="date"  name="checkin" id="checkin" value="{{time.now}}"  class="form-control" >
+                      </div>
+                    </div>
+
+                   <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="form-control-label" >Check-out</label>
+                        <input type="date" name="checout" id="checkout" class="form-control" >
+                      </div>
+                    </div>
+
+                    </div>
+
+
+                  <div class="con">
+               <h3 style="color:white; text-align:center; margin-top:5px;" >Payment Information:</h3>
+                </div>
+
+
+                  <div class="row"  style="margin-right:25px; margin-left:30px;">
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="form-control-label" style="margin-top:20px;">Total Amount</label>
+                        <input type="number" name="totalamount" id="totalamount" class="form-control" readonly style="background: white">
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="form-control-label"  style="margin-top:20px;">Advance Amount</label>
+                        <input type="number" name="advanceamount" id="advanceamount" class="form-control" onchange="calcbalance()" onkeypress="return isNumberKey(event)">
+                      </div>
+                     </div>
+                     <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="form-control-label" style="margin-top:20px;">Balance Amount</label>
+                        <input type="text" name="balanceamount" id="balanceamount" required onkeypress="return isNumberKey(event)" class="form-control" placeholder="Balance Amount" readonly>
+                      </div>
+                     </div>
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="form-control-label" >Payment Mode</label>
+                        <select name = "adamount" id="paymentmode" class="form-control">
+            <option><-- Select --></option>
+            <option value = "cash">Cash</option>
+            <option value="Credit">Card</option>
+
+         </select>
+                      </div>
+                     </div>
+              <div class="col-lg-4">
+                      <div class="form-group">
+
+                  <button type="submit" class="btn btn-round btn-primary" style="margin-top: 30px;" name="bookingsubmit">SUBMIT
+        </button>
+
+                      </div>
+                    </div>
+
+</div>
+
+</form>
+  <!-- Booking update and delete -->
+
+
+
+
+<p class="p" style="margin-left:30px; margin-top:20px; color:black;">Manage Booking details here:</p>
+
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'London')" style="font-family: 'Times New Roman', Times, serif; color:white;">UPDATE/DELETE</button>
+
+
+</div>
+
+<div id="London" class="tabcontent">
+
+<p class="p"></p>
+  <div class="row" style="margin-top:25px;">
+  <div class="container-fluid mt--3">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <!-- Card header -->
+            <div class="card-header border-0">
+              <h3 class="mb-0">UPDATE/DELETE DETAILS </h3>
+            </div>
+            <!-- Light table -->
+            <div class="table-responsive">
+              <table class="table align-items-center table-flush" id="js-serial">
+                {% csrf_token %}
+                <thead class="thead-light">
+                  <tr>
+
+                    <th scope="col" class="sort" data-sort="budget">Agent ID</th>
+                    <th scope="col" class="sort" data-sort="status">Agent Name</th>
+                    <th scope="col" class="sort" data-sort="budget">Customer Name</th>
+                    <th scope="col" class="sort" data-sort="status">Contact Number</th>
+                   <th scope="col" class="sort" data-sort="budget">Address</th>
+                    <th scope="col" class="sort" data-sort="status">Room No</th>
+                    <th scope="col" class="sort" data-sort="budget">No of Rooms</th>
+                    <th scope="col" class="sort" data-sort="status">Check-in</th>
+                    <th scope="col" class="sort" data-sort="budget">Check-out</th>
+                    <th scope="col" class="sort" data-sort="status">Total Amount</th>
+                    <th scope="col" class="sort" data-sort="budget">Advance Amount</th>
+                    <th scope="col" class="sort" data-sort="status">Balance Amount</th>
+                    <th scope="col" class="sort" data-sort="status">Payment Mode</th>
+                    <th scope="col" class="sort" data-sort="completion">Manage</th>
+                  </tr>
+                </thead>
+
+                 <tbody class="list">
+                {% for b in bbook %}
+
+                  <tr>
+
+                    <td class="budget">
+                     {{ b.agentid.agentid }}
+                    </td>
+                    <td class="budget">
+                     {{ b.agentid.agentname }}
+                    </td>
+                    <td class="budget">
+                     {{ b.fullname }}
+                    </td>
+                       <td class="budget">
+                     {{ b.contactno }}
+                    </td>
+                    <td class="budget">
+                     {{ b.address }}
+                    </td>
+                    <td class="budget">
+                     {{ b.roomid }}
+                    </td>
+                    <td class="budget">
+                     {{ b.noofrooms}}
+                    </td>
+                     <td class="budget">
+                     {{ b.checkin}}
+                    </td>
+                     <td class="budget">
+                     {{ b.checkout}}
+                    </td>
+                    <td class="budget">
+                     {{ b.totalamount}}
+                    </td>
+                   <td class="budget">
+                     {{ b.adamount}}
+                    </td>
+                    <td class="budget">
+                     {{ b.balanceamount}}
+                    </td>
+                    <td class="budget">
+                     {{ b.payementmode}}
+                    </td>
+                    <td class="budget">
+                      <a href="editbbooking/{{b.bookingid}}" class="btn btn-sm btn-neutral" >UPDATE</a>
+                      <a href="bbooking/{{b.bookingid}}" class="btn btn-sm btn-info  mr-4" onclick="return confirm('Are you sure???')">DELETE</a>
+
+                    </td>
+                    </tr>
+
+                    {% endfor %}
+                    </tbody>
+
+                    </table>
+                    </div></div></div></div></div></div>
+
+
+
+
+  </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+<script>
+function addRowCount(tableAttr) {
+  $(tableAttr).each(function () {
+    $('th:first-child, thead td:first-child', this).each (function(){
+      var tag = $(this).prop('tagName');
+      $(this).before('<'+tag+'>ID</'+tag+'>');
+
+    }) ;
+    $('td:first-child', this).each(function(i){
+      $(this).before('<td>'+(i+1)+'</td>');
+    });
+  });
+}
+addRowCount('#js-serial');
+</script>
+
+
+  <script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+
+
+<script>
+
+function removeroom(text) {
+        newText = document.getElementById("selectedrooms").value;
+        newText = newText.replace(/text/gi, '');
+        document.getElementById("selectedrooms").value = "";
+        //document.getElementById("selectedrooms").value=newText;
+        alert(newText);
+        newText = null;
+    }
+
+
+
+
+
+
+
+
+// CHECKIN AND CHECKOUT - DATE FIELD JAVASCRIPT -----BEG----------------------------------------
+let today = new Date(),
+    day = today.getDate(),
+    month = today.getMonth()+1, //January is 0
+    year = today.getFullYear();
+         if(day<10){
+                day='0'+day
+            }
+        if(month<10){
+            month='0'+month
+        }
+        today = year+'-'+month+'-'+day;
+
+        document.getElementById("checkout").setAttribute("min", today);
+        document.getElementById("updatedcheckout").setAttribute("min", today);
+// CHECKIN AND CHECKOUT - DATE FIELD JAVASCRIPT -----END----------------------------------------
+
+
+
+
+
+
+
+// CHECKIN AND CHECKOUT - DATE FIELD JAVASCRIPT -----BEG----------------------------------------
+    function removeroom(text) {
+        newText = document.getElementById("selectedrooms").value;
+        newText = newText.replace(/text/gi, '');
+        document.getElementById("selectedrooms").value = "";
+        //document.getElementById("selectedrooms").value=newText;
+        alert(newText);
+        newText = null;
+    }
+// CHECKIN AND CHECKOUT - DATE FIELD JAVASCRIPT -----END----------------------------------------
+
+
+
+
+
+//  BALANCE AMOUNT FILED CALCULATION-----BEG----------------------------------------
+    function calcbalance() {
+        var a = document.getElementById('totalamount');
+        var b = document.getElementById('advanceamount');
+        var bal = parseInt(a.value) - parseInt(b.value);
+        document.getElementById('balanceamount').value = bal.toString();
+    }
+
+    function updatedcalcbalance() {
+        var a = document.getElementById('updatedtotalamount');
+        var b = document.getElementById('updatedadvanceamount');
+        var bal = parseInt(a.value) - parseInt(b.value);
+        document.getElementById('updatedbalanceamount').value = bal.toString();
+    }
+//  BALANCE AMOUNT FILED CALCULATION-----EBD----------------------------------------
+
+
+
+
+
+    function maxLengthCheck(object) {
+        if (object.value.length > object.maxLength)
+            object.value = object.value.slice(0, object.maxLength)
+
+
+    }
+
+
+
+
+
+
+
+// ADD VALUE FROM ROYAL SUITE DIVISION TO SELECTED ROOMS ---------------------------------------------
+{# first #}
+    function addTextNode1(text) {
+
+        newtext = document.createTextNode(text + ',');
+
+        p1 = document.getElementById("p1");
+        var str=p1.innerText;
+        if(!str.includes(newtext.wholeText))
+            p1.appendChild(newtext);
+
+        newtext = document.createTextNode(text + ',');
+        p11 = document.getElementById("p11");
+        var strr=p11.innerText;
+        if(!strr.includes(newtext.wholeText))
+            p11.appendChild(newtext);
+
+            value=document.getElementById('p11').innerText;
+            array = value.split(',').length;
+            newarray=array-1;
+            document.getElementById('sum').value=document.getElementById('sumval').value*newarray;
+
+    }
+
+
+
+
+
+
+// ADD VALUE FROM PREMIUM SUITE DIVISION TO SELECTED ROOMS ---------------------------------------------
+     {# second #}
+    function addTextNode2(text) {
+
+        newtext = document.createTextNode(text + ',');
+
+        p1 = document.getElementById("p1");
+        var str=p1.innerText;
+        if(!str.includes(newtext.wholeText))
+            p1.appendChild(newtext);
+
+        newtext = document.createTextNode(text + ',');
+        p12 = document.getElementById("p12");
+        var strr=p12.innerText;
+        if(!strr.includes(newtext.wholeText))
+            p12.appendChild(newtext);
+
+        value=document.getElementById('p12').innerText;
+            array = value.split(',').length;
+            newarray=array-1;
+            document.getElementById('sum2').value=document.getElementById('sumval2').value*newarray;
+
+    }
+
+
+
+// ADD VALUE FROM ROYAL SUITE DIVISION TO SELECTED ROOMS ---------------------------------------------
+     {# third #}
+    function addTextNode3(text) {
+
+        newtext = document.createTextNode(text + ',');
+
+        p1 = document.getElementById("p1");
+        var str=p1.innerText;
+        if(!str.includes(newtext.wholeText))
+            p1.appendChild(newtext);
+
+        newtext = document.createTextNode(text + ',');
+        p13 = document.getElementById("p13");
+        var strr=p13.innerText;
+        if(!strr.includes(newtext.wholeText))
+            p13.appendChild(newtext);
+
+        value=document.getElementById('p13').innerText;
+            array = value.split(',').length;
+            newarray=array-1;
+            document.getElementById('sum3').value=document.getElementById('sumval3').value*newarray;
+
+    }
+
+
+
+
+
+// ADD VALUE FROM PREMIUM SUITE DIVISION TO SELECTED ROOMS ---------------------------------------------
+     {# fourth #}
+    function addTextNode4(text) {
+
+        newtext = document.createTextNode(text + ',');
+
+        p1 = document.getElementById("p1");
+        var str=p1.innerText;
+        if(!str.includes(newtext.wholeText))
+            p1.appendChild(newtext);
+
+        newtext = document.createTextNode(text + ',');
+        p14 = document.getElementById("p14");
+        var strr=p14.innerText;
+        if(!strr.includes(newtext.wholeText))
+            p14.appendChild(newtext);
+
+        value=document.getElementById('p14').innerText;
+            array = value.split(',').length;
+            newarray=array-1;
+            document.getElementById('sum4').value=document.getElementById('sumval4').value*newarray;
+
+    }
+
+
+
+
+
+
+// REMOVE VALUE FROM ROYAL SUITE DIVISION TO SELECTED ROOMS ---------------------------------------------
+    {# first #}
+    function removeLi1(text) {
+
+            p1 = document.getElementById("p1");
+            var orig = p1.innerText;
+            var str = orig.replace(text + ',', '');
+            p1.innerText = str;
+
+            p11 = document.getElementById("p11");
+            var origg = p11.innerText;
+            var strr = origg.replace(text + ',', '');
+            p11.innerText = strr;
+
+             document.getElementById('sum').value=document.getElementById('sum').value-document.getElementById('sumval').value;
+        }
+
+
+
+
+// REMOVE VALUE FROM ROYAL SUITE DIVISION TO SELECTED ROOMS ---------------------------------------------
+    {# second #}
+         function removeLi2(text) {
+
+            p1 = document.getElementById("p1");
+            var orig = p1.innerText;
+            var str = orig.replace(text + ',', '');
+            p1.innerText = str;
+
+            p12 = document.getElementById("p12");
+            var origg = p12.innerText;
+            var strr = origg.replace(text + ',', '');
+            p12.innerText = strr;
+
+            document.getElementById('sum2').value=document.getElementById('sum2').value-document.getElementById('sumval2').value;
+        }
+
+
+
+
+
+// REMOVE VALUE FROM ROYAL SUITE DIVISION TO SELECTED ROOMS ---------------------------------------------
+        {# third #}
+         function removeLi3(text) {
+
+            p1 = document.getElementById("p1");
+            var orig = p1.innerText;
+            var str = orig.replace(text + ',', '');
+            p1.innerText = str;
+
+            p13 = document.getElementById("p13");
+            var origg = p13.innerText;
+            var strr = origg.replace(text + ',', '');
+            p13.innerText = strr;
+
+            document.getElementById('sum3').value=document.getElementById('sum3').value-document.getElementById('sumval3').value;
+        }
+
+
+
+
+
+// REMOVE VALUE FROM ROYAL SUITE DIVISION TO SELECTED ROOMS ---------------------------------------------
+         {# four #}
+         function removeLi4(text) {
+
+            p1 = document.getElementById("p1");
+            var orig = p1.innerText;
+            var str = orig.replace(text + ',', '');
+            p1.innerText = str;
+
+            p14 = document.getElementById("p14");
+            var origg = p14.innerText;
+            var strr = origg.replace(text + ',', '');
+            p14.innerText = strr;
+
+            document.getElementById('sum4').value=document.getElementById('sum4').value-document.getElementById('sumval4').value;
+        }
+
+
+
+// TOTAL AMOUNT CALCULATION ---------------------------------------------
+        function passvaluetobtn1() {
+        document.getElementById('d').value = document.getElementById('p1').innerText;
+        document.getElementById('selectedrooms').value = document.getElementById('p1').innerText;
+        v1=document.getElementById('sum').value;
+             v2=document.getElementById('sum2').value;
+             v3=document.getElementById('sum3').value;
+             v4=document.getElementById('sum4').value;
+
+             document.getElementById('selectedrooms').value=document.getElementById('p1').innerText;
+             document.getElementById('totalamount').value=+v1 + +v2 + +v3 + +v4;
+
+             v1=document.getElementById('selectedrooms').value;
+        v2=v1.split(',');
+        v3=v2.length-1;
+        document.getElementById('numberofrooms').value=v3;
+
+
+    }
+
+</script>
+<script>
+    function addCommas(str) {
+        return str.replace(/^0+/, '').replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    function test() {
+        var val = document.getElementById('test').value;
+        document.getElementById('test').value = addCommas(val);
+    }
+
+
+    function validate() {
+        value = document.getElementById('cphone').value;
+        ind=value.charAt(0);
+        if (value.length < 10){
+            alert('Enter a 10 digit mobile number');
+        }
+
+        if (ind <7){
+            alert('Enter a valid mobile number');
+        }
+
+    }
+
+
+    function checkvalue() {
+        v1=document.getElementById('selectedrooms').value;
+        v2=v1.split(',');
+        v3=v2.length-1;
+        v4=document.getElementById('numberofrooms').value;
+        if (v3 != v4){
+            alert('Enter correct total no of rooms');
+            document.getElementById('numberofrooms').value=false;
+        }
+        else{
+            document.getElementById('numberofrooms').value=v4;
+        }
+
+    }
+
+    function isNumberKey(evt)
+       {
+          var charCode = (evt.which) ? evt.which : evt.keyCode;
+          if (charCode != 46 && charCode > 31
+            && (charCode < 48 || charCode > 57))
+             return false;
+
+          return true;
+       }
+
+</script>
+ <script>
+    $("#country").change(function () {
+      var url = $("#personForm").attr("data-cities-url");  // get the url of the `load_cities` view
+      var countryId = $(this).val();  // get the selected country ID from the HTML input
+
+      $.ajax({                       // initialize an AJAX request
+        url: url,                    // set the url of the request (= localhost:8000/hr/ajax/load-cities/)
+        data: {
+          'country': countryId       // add the country id to the GET parameters
+        },
+        success: function (data) {   // `data` is the return of the `load_cities` view function
+          $("#id_city").html(data);  // replace the contents of the city input with the data that came from the server
+        }
+      });
+
+    });
+  </script>
+      <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+     $('#guestcontact').keypress(function (e) {
+        var regex = new RegExp("^[0-9\]+$");
+        var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+        if (regex.test(str)) {
+            return true;
+        }
+        else
+        {
+        e.preventDefault();
+        document.getElementById("n1").innerHTML="Enter Numeric value only";
+        return false;
+        }
+    });
+</script>
+<script>
+ $('#firstname').keypress(function (e) {
+        var regex = new RegExp("^[a-zA-Z \s]+$");
+        var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+        if (regex.test(str)) {
+            return true;
+        }
+        else
+        {
+        e.preventDefault();
+        document.getElementById("na1").innerHTML="Enter alpha value only";
+        return false;
+        }
+    });
+</script>
+<script>
+     $('#bage').keypress(function (e) {
+        var regex = new RegExp("^[0-9\]+$");
+        var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+        if (regex.test(str)) {
+            return true;
+        }
+        else
+        {
+        e.preventDefault();
+        document.getElementById("n2").innerHTML="Enter Numeric value only";
+        return false;
+        }
+    });
+</script>
+<script>
+     $('#grc').keypress(function (e) {
+        var regex = new RegExp("^[0-9\]+$");
+        var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+        if (regex.test(str)) {
+            return true;
+        }
+        else
+        {
+        e.preventDefault();
+        document.getElementById("n7").innerHTML="Enter Numeric value only";
+        return false;
+        }
+    });
+</script>
+<script>
+     $('#pincode').keypress(function (e) {
+        var regex = new RegExp("^[0-9\]+$");
+        var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+        if (regex.test(str)) {
+            return true;
+        }
+        else
+        {
+        e.preventDefault();
+        document.getElementById("n5").innerHTML="Enter Numeric value only";
+        return false;
+        }
+    });
+</script>
+<script>
+ $('#city').keypress(function (e) {
+        var regex = new RegExp("^[a-zA-Z \s]+$");
+        var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+        if (regex.test(str)) {
+            return true;
+        }
+        else
+        {
+        e.preventDefault();
+        document.getElementById("n3").innerHTML="Enter alpha value only";
+        return false;
+        }
+    });
+</script>
+<script>
+ $('#country').keypress(function (e) {
+        var regex = new RegExp("^[a-zA-Z \s]+$");
+        var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+        if (regex.test(str)) {
+            return true;
+        }
+        else
+        {
+        e.preventDefault();
+        document.getElementById("n4").innerHTML="Enter alpha value only";
+        return false;
+        }
+    });
+</script>
+<script>
+ if (localStorage) {
+        function a() {
+            window.localStorage['fname'] = document.getElementById('firstname').value;
+            window.localStorage['guestcontact'] = document.getElementById('guestcontact').value;
+            window.localStorage['address'] = document.getElementById('address').value;
+            window.localStorage['city'] = document.getElementById('city').value;
+            window.localStorage['country'] = document.getElementById('country').value;
+            window.localStorage['pincode'] = document.getElementById('pincode').value;
+            window.localStorage['gender'] = document.getElementById('cgender').value;
+            window.localStorage['age'] = document.getElementById('age').value;
+            window.localStorage['phone'] = document.getElementById('guestcontact').value;
+            window.localStorage['checkin'] = document.getElementById('checkin').value;
+            window.localStorage['checkout'] = document.getElementById('chekout').value;
+            window.localStorage['no_of_rooms'] = document.getElementById('numberofrooms').value;
+            window.localStorage['room_no'] = document.getElementById('selectedrooms').value;
+            window.localStorage['grc_no'] = document.getElementById('grcnumber').value;
+            window.localStorage['no_of_adults'] = document.getElementById('numberofadults').value;
+            window.localStorage['no_of_childrens'] = document.getElementById('numberofchildrens').value;
+            window.localStorage['advance_amount'] = document.getElementById('advanceamount').value;
+            window.localStorage['balance_amount'] = document.getElementById('balanceamount').value;
+            window.localStorage['total_amount'] = document.getElementById('totalamount').value;
+
+        }
+    }
+    </script>
+    <!-- Footer -->
+      <br/><br/><br/>
+      <footer class="footer pt-0">
+        <div class="row align-items-center justify-content-lg-between">
+          <div class="col-lg-6">
+            <div class="copyright text-center  text-lg-left  text-muted">
+              &copy; 2020 <a href="" class="font-weight-bold ml-1" target="_blank">Creative Tim</a>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+              <li class="nav-item">
+                <a href="" class="nav-link" target="_blank">Creative Tim</a>
+              </li>
+              <li class="nav-item">
+                <a href="" class="nav-link" target="_blank">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a href="" class="nav-link" target="_blank">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a href="" class="nav-link" target="_blank">MIT License</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <!-- Argon Scripts -->
+  <!-- Core -->
+  <script src="{% static 'assets/vendor/jquery/dist/validation.js' %}"></script>
+  <script src="{% static 'assets/js/index.js' %}"></script>
+  <script src="{% static 'assets/vendor/date.js' %}"></script>
+  <script src="{% static 'assets/vendor/jquery/dist/jquery.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/js-cookie/js.cookie.js' %}"></script>
+  <script src="{% static 'assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js' %}"></script>
+  <!-- Optional JS -->
+  <script src="{% static 'assets/vendor/chart.js/dist/Chart.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/chart.js/dist/Chart.extension.js' %}"></script>
+  <!-- Argon JS -->
+  <script src="{% static 'assets/js/argon.js' %}"></script>
+</body>
+
+</html>
