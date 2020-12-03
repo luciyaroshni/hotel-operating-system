@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+<!-- basic -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- mobile metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<!-- site metas -->
+<title>Argon</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="">
+<!-- site icons -->
+<link rel="icon" href="{% static 'images/fevicon/fevicon.png' %}" type="image/gif" />
+<!-- bootstrap css -->
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+<!-- Site css -->
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+<!-- responsive css -->
+<link rel="stylesheet" href="{% static 'css/responsive.css' %}" />
+<!-- colors css -->
+<link rel="stylesheet" href="{% static 'css/colors1.css' %}" />
+<!-- custom css -->
+<link rel="stylesheet" href="{% static 'css/custom.css' %}" />
+<!-- wow Animation css -->
+<link rel="stylesheet" href="{% static 'css/animate.css' %}" />
+<!-- revolution slider css -->
+<link rel="stylesheet" type="text/css" href="{% static 'revolution/css/settings.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'revolution/css/layers.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'revolution/css/navigation.css' %}" />
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+</head>
+<body id="default_theme" class="it_service">
+<!-- loader -->
+<div class="bg_load"> <img class="loader_animation" src="{% static 'images/loaders/loader_1.png' %}" alt="#" /> </div>
+<!-- end loader -->
+<!-- header -->
+<header id="default_header" class="header_style_1">
+  <!-- header top -->
+  <div class="header_top">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="full">
+            <div class="topbar-left">
+              <ul class="list-inline">
+                <li> <span class="topbar-label"><i class="fa  fa-home"></i></span> <span class="topbar-hightlight">Argon</span> </li>
+                <li> <span class="topbar-label"><i class="fa fa-envelope-o"></i></span> <span class="topbar-hightlight"><a href="">argon.com</a></span> </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 right_section_header_top">
+          <div class="float-left">
+            <div class="social_icon">
+              <ul class="list-inline">
+
+              </ul>
+            </div>
+          </div>
+          <div class="float-right">
+            <div class="make_appo"> <a class="btn white_btn" href="aalogout" onclick="return confirm('ARE YOU SURE?')">Logout</a> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end header top -->
+  <!-- header bottom -->
+  <div class="header_bottom">
+    <div class="container">
+
+        <div class="row">
+
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+          <!-- logo start -->
+          <div class="logo"> <a href=""><img src="{% static 'images/logos/blue.png' %}" alt="logo" /></a> </div>
+          <!-- logo end -->
+        </div>
+
+        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+          <!-- menu start -->
+          <div class="menu_side">
+            <div id="navbar_menu">
+              <ul class="first-ul">
+                <li> <a  href="http://127.0.0.1:8000/agent/agentdashboard">Dashboard</a>
+
+                </li>
+                <li><a  href="http://127.0.0.1:8000/agent/agentbooking">Booking</a></li>
+                  <li><a class="active" href="http://127.0.0.1:8000/agent/agentbookingdetail">Booking Details</a></li>
+                <li> <a href="http://127.0.0.1:8000/agent/agentupdate">Update Profile</a>
+
+                </li>
+
+                <li> <a href="#"></a>
+
+                </li>
+                <li> <a href=""></a>
+
+                </li>
+                <li> <a href=""></a>
+
+                </li>
+              </ul>
+            </div>
+
+          </div>
+          <!-- menu end -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- header bottom end -->
+</header>
+<!-- end header -->
+<!-- section -->
+
+
+
+<!-- end section -->
+<!-- section -->
+
+
+<label style="color:lightblue; margin-left:15px;">{{usersession.agentname}}</label>
+    <div class="section padding_layout_1">
+      <div class="container">
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="main_heading text_align_center">
+              <h2>New Booking</h2>
+            </div>
+          </div>
+        </div>
+
+<br/>
+<form method="POST">
+    {% csrf_token %}
+        <div class="row">
+
+            <div class="field col-lg-4 col-md-4 col-sm-8 col-xs-8">
+                <label>Agent ID</label>
+                <input class="field_custom"  type="text" value="{{aagentob.agentid}}" name="agentid" required>
+            </div>
+
+            <div class="field col-lg-4 col-md-4 col-sm-8 col-xs-8">
+                <label>Agent Name</label>
+                <input class="field_custom"  type="text" value="{{usersession.agentname}}" required>
+            </div>
+
+            <div class="field col-lg-4 col-md-4 col-sm-8 col-xs-8">
+                <label>Agent Contact</label>
+                <input class="field_custom"  type="text" value="{{usersession.agentcontactno}}" required>
+            </div>
+
+        </div><br/>
+
+
+
+          <div class="row">
+                <div class="container">
+                    <label style="font-size: medium; color: black;">Customer Details</label><br/>
+                </div>
+                <div class="field col-lg-4 col-md-4 col-sm-8 col-xs-8">
+                    <input class="field_custom" placeholder="Name*" name="guestname" id="guestname" value="{{upabook.fullname}}" type="text" required>
+                    <span id="g1" style="color:blue"></span>
+                </div>
+
+                <div class="field col-lg-4 col-md-4 col-sm-8 col-xs-8">
+                    <input class="field_custom" placeholder="Contact*" name="guestcont" id="guestcont" value="{{upabook.contactno}}" type="text" maxlength="10" minlength="6" required>
+                    <span id="g2" style="color:blue"></span>
+                </div>
+
+                <div class="field col-lg-4 col-md-4 col-sm-8 col-xs-8">
+                    <input class="field_custom" placeholder="Email*" type="email" name="guestemail" value="{{upabook.emailg}}" required>
+                </div>
+
+                <div class="field col-lg-4 col-md-4 col-sm-8 col-xs-8">
+                    <input class="field_custom" placeholder="Age*" maxlength="2" type="text" name="guestage" id="guestage" value="{{upabook.age}}" required>
+                    <span id="g4" style="color:blue"></span>
+                </div>
+
+                <div class="field col-lg-4 col-md-4 col-sm-8 col-xs-8">
+                     <input class="field_custom" placeholder="Country*" type="text" name="guestcountry" id="guestcountry" value="{{upabook.country}}" required>
+                    <span id="g5" style="color:blue"></span>
+                </div>
+
+                <div class="field col-lg-4 col-md-4 col-sm-8 col-xs-8">
+                     <input class="field_custom" placeholder="City*" type="text" name="guestcity" id="guestcity" value="{{upabook.city}}" required>
+                    <span id="g6" style="color:blue"></span>
+                </div>
+
+          </div>
+        <br/>
+
+        <div class="row">
+          <div class="container">
+            <label style="font-size: medium; color: black;">Booking Details</label>
+          </div><br/></div>
+
+        <div class="row" style=" background: #82a3c4; margin-top:10px; margin-left:10px; margin-right:10px;">
+
+          <div class="col"
+                                             style="border-right: solid white 5px; color: white;margin-right: 5px;text-align: center">
+                                            <div style="text-align: center;position: relative;top: 25%">
+                                                <label style="font-size: 16px;font-weight: bold">ROYAL
+                                                    SUITE</label>{% for royal in roysuiteval %}
+                                                 <label>( {{royal.catrate}})</label>
+                                            {% endfor %}
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="col"
+                                             style="border-right: solid white 5px; color: white;margin-right: 5px;text-align: center">
+                                            <div style="text-align: center;position: relative;top: 25%">
+                                                <label style="font-size: 16px;font-weight: bold">PREMIUM
+                                                    SUITE</label>{% for premium in presuitval %}
+                                                 <label>({{premium.catrate}})</label>
+                                            {% endfor %}
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col"
+                                             style="border-right: solid white 5px; color: white;margin-right: 5px;text-align: center">
+                                            <div style="text-align: center;position: relative;top: 25%">
+                                                <label style="font-size: 16px;font-weight: bold">EXECUTIVE
+                                                    SUITE</label>{% for execuit in exesuitval %}
+                                                 <label>({{execuit.catrate}})</label>
+                                            {% endfor %}
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="col"
+                                             style=" color: white;margin-right: 5px;text-align: center">
+                                            <div style="text-align: center;position: relative;top: 25%">
+                                                <label style="font-size: 16px;font-weight: bold">TENT
+                                                    CAMPING</label>{% for tensuit in tensuiteval %}
+                                                 <label>({{tensuit.catrate}})</label>
+                                            {% endfor %}
+                                            </div>
+                                        </div>
+
+
+      </div>
+
+
+
+  <div class="row"
+           style="margin-bottom: 20px; background: #82a3c4;padding: 5px; margin-left:10px; margin-right:10px;"
+           ondblclick="passvaluetobtn1()"
+                                         onclick="passvaluetobtn1()">
+
+                  <div class="col" style="background: white;margin-right: 5px">
+
+              <div class="row" style="padding-left: 15px;padding-top: 10px;" ondblclick="document.getElementById('selectedrooms').value=document.getElementById('p1').innerText"
+                                                 onclick="document.getElementById('selectedrooms').value=document.getElementById('p1').innerText">
+                                                                 {% for item in roomob1 %}
+                                                    <input type="button" id="demo" class="a"
+                                                            ondblclick="removeLi1({{ item.roomid }})"
+                                                           onclick="addTextNode1({{ item.roomid }});"
+                                                           value="{{ item.roomid }}">
+
+                                                {% endfor %}
+                 {% for item in roysuiteval %}
+                                                <input id="sumval" value="{{ item.catrate }}" style="width: 120px" hidden >
+                                            {% endfor %}
+                                                <input id="sum" style="width: 120px" hidden>
+                                                <p id="p11"hidden ></p>
+
+
+                                                <p id="p1" hidden></p>
+              </div>
+          </div>
+
+       <div class="col" style="background: white;margin-right: 5px">
+
+              <div class="row" ondblclick="document.getElementById('selectedrooms').value=document.getElementById('p1').innerText"
+                                                  onclick="document.getElementById('selectedrooms').value=document.getElementById('p1').innerText"
+                   style="padding-left: 15px;padding-top: 10px;padding-bottom: 10px">
+                  {% for item in roomob2 %}
+                                                     <input type="button"
+                                                           class="a"
+                                                           ondblclick="removeLi2({{ item.roomid }})"
+                                                           onclick="addTextNode2({{ item.roomid }});"
+                                                           value="{{ item.roomid }}">
+                                                {% endfor %}
+                  {% for item in presuitval %}
+                                                <input id="sumval2" value="{{ item.catrate }}" style="width: 120px" hidden>
+                                                {% endfor %}
+                                                <input id="sum2" style="width: 120px" hidden>
+
+                                                <p id="p12" hidden></p>
+
+              </div>
+          </div>
+
+
+
+          <div class="col" style="background: white;margin-right: 5px">
+
+              <div class="row" ondblclick="document.getElementById('selectedrooms').value=document.getElementById('p1').innerText"
+                                                 onclick="document.getElementById('selectedrooms').value=document.getElementById('p1').innerText"
+                   style="padding-left: 15px;padding-top: 10px;padding-bottom: 10px">
+                  {% for item in roomob3 %}
+                                                    <input type="button"
+                                                           class="a"
+                                                           ondblclick="removeLi3({{ item.roomid }})"
+                                                           onclick="addTextNode3({{ item.roomid }});"
+                                                           value="{{ item.roomid }}">
+                                                {% endfor %}
+                  {% for item in exesuitval %}
+                                                <input id="sumval3" value="{{ item.catrate }}" style="width: 120px" hidden>
+                                            {% endfor %}
+                                                <input id="sum3" style="width: 120px" hidden>
+
+                                            <p id="p13" hidden></p>
+
+              </div>
+
+          </div>
+
+          <div class="col" style="background: white;margin-right: 5px">
+              <div class="row" ondblclick="document.getElementById('selectedrooms').value=document.getElementById('p1').innerText"
+                                                 onclick="document.getElementById('selectedrooms').value=document.getElementById('p1').innerText"
+                   style="padding-left: 5px;padding-top: 10px;padding-bottom: 10px">
+                  {% for item in roomob4 %}
+                                                    <input type="button"
+                                                           class="a"
+                                                           ondblclick="removeLi4({{ item.roomid }})"
+                                                           onclick="addTextNode4({{ item.roomid }});"
+                                                           value="{{ item.roomid }}">
+                                                {% endfor %}
+                 {% for item in tensuiteval %}
+                                                <input id="sumval4" value="{{ item.catrate }}" style="width: 120px" hidden>
+                                            {% endfor %}
+                                                <input id="sum4" style="width: 120px" hidden>
+
+                                            <p id="p14" hidden></p>
+              </div>
+
+
+          </div>
+
+  </div>
+
+
+
+
+  <div class="row">
+    <div class="field col-lg-4 col-md-4 col-sm-8 col-xs-8">
+      <label>Room Numbers</label>
+      <input class="field_custom"  type="text" name="selectedrooms" id="selectedrooms" value="{{upabook.roomid}}" oninput="test()" readonly >
+    </div>
+
+      <div class="field col-lg-4 col-md-4 col-sm-8 col-xs-8">
+      <label>Check-in</label>
+       <input type="date"  name="checkin" id="checkin" value="{{chekd}}"  class="field_custom" >
+      </div>
+
+      <div class="field col-lg-4 col-md-4 col-sm-8 col-xs-8">
+      <label>Check-out</label>
+      <input type="date" name="checout" id="checkout" value="{{cheko}}" class="field_custom" >
+      </div>
+  </div>
+
+
+<div class="row">
+    <div class="field col-lg-1" style="margin-bottom: 20px; margin-top: 12px;">
+      <button class="btn main_bt" type="submit" name="upagentsubmit">Submit</button>
+      </div>
+</div>
+</form></div>
+ <br/>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+
+function removeroom(text) {
+        newText = document.getElementById("selectedrooms").value;
+        newText = newText.replace(/text/gi, '');
+        document.getElementById("selectedrooms").value = "";
+        //document.getElementById("selectedrooms").value=newText;
+        alert(newText);
+        newText = null;
+    }
+
+
+
+
+// CHECKIN AND CHECKOUT - DATE FIELD JAVASCRIPT -----BEG----------------------------------------
+let today = new Date(),
+    day = today.getDate(),
+    month = today.getMonth()+1, //January is 0
+    year = today.getFullYear();
+         if(day<10){
+                day='0'+day
+            }
+        if(month<10){
+            month='0'+month
+        }
+        today = year+'-'+month+'-'+day;
+
+        document.getElementById("checkout").setAttribute("min", today);
+        document.getElementById("updatedcheckout").setAttribute("min", today);
+// CHECKIN AND CHECKOUT - DATE FIELD JAVASCRIPT -----END----------------------------------------
+
+
+
+
+
+
+
+// CHECKIN AND CHECKOUT - DATE FIELD JAVASCRIPT -----BEG----------------------------------------
+    function removeroom(text) {
+        newText = document.getElementById("selectedrooms").value;
+        newText = newText.replace(/text/gi, '');
+        document.getElementById("selectedrooms").value = "";
+        //document.getElementById("selectedrooms").value=newText;
+        alert(newText);
+        newText = null;
+    }
+// CHECKIN AND CHECKOUT - DATE FIELD JAVASCRIPT -----END----------------------------------------
+
+
+
+
+
+//  BALANCE AMOUNT FILED CALCULATION-----BEG----------------------------------------
+    function calcbalance() {
+        var a = document.getElementById('totalamount');
+        var b = document.getElementById('advanceamount');
+        var bal = parseInt(a.value) - parseInt(b.value);
+        document.getElementById('balanceamount').value = bal.toString();
+    }
+
+    function updatedcalcbalance() {
+        var a = document.getElementById('updatedtotalamount');
+        var b = document.getElementById('updatedadvanceamount');
+        var bal = parseInt(a.value) - parseInt(b.value);
+        document.getElementById('updatedbalanceamount').value = bal.toString();
+    }
+//  BALANCE AMOUNT FILED CALCULATION-----EBD----------------------------------------
+
+
+
+
+
+    function maxLengthCheck(object) {
+        if (object.value.length > object.maxLength)
+            object.value = object.value.slice(0, object.maxLength)
+
+
+    }
+
+
+
+
+
+
+
+// ADD VALUE FROM ROYAL SUITE DIVISION TO SELECTED ROOMS ---------------------------------------------
+{# first #}
+    function addTextNode1(text) {
+
+        newtext = document.createTextNode(text + ',');
+
+        p1 = document.getElementById("p1");
+        var str=p1.innerText;
+        if(!str.includes(newtext.wholeText))
+            p1.appendChild(newtext);
+
+        newtext = document.createTextNode(text + ',');
+        p11 = document.getElementById("p11");
+        var strr=p11.innerText;
+        if(!strr.includes(newtext.wholeText))
+            p11.appendChild(newtext);
+
+            value=document.getElementById('p11').innerText;
+            array = value.split(',').length;
+            newarray=array-1;
+            document.getElementById('sum').value=document.getElementById('sumval').value*newarray;
+
+    }
+
+
+
+
+
+
+// ADD VALUE FROM PREMIUM SUITE DIVISION TO SELECTED ROOMS ---------------------------------------------
+     {# second #}
+    function addTextNode2(text) {
+
+        newtext = document.createTextNode(text + ',');
+
+        p1 = document.getElementById("p1");
+        var str=p1.innerText;
+        if(!str.includes(newtext.wholeText))
+            p1.appendChild(newtext);
+
+        newtext = document.createTextNode(text + ',');
+        p12 = document.getElementById("p12");
+        var strr=p12.innerText;
+        if(!strr.includes(newtext.wholeText))
+            p12.appendChild(newtext);
+
+        value=document.getElementById('p12').innerText;
+            array = value.split(',').length;
+            newarray=array-1;
+            document.getElementById('sum2').value=document.getElementById('sumval2').value*newarray;
+
+    }
+
+
+
+// ADD VALUE FROM ROYAL SUITE DIVISION TO SELECTED ROOMS ---------------------------------------------
+     {# third #}
+    function addTextNode3(text) {
+
+        newtext = document.createTextNode(text + ',');
+
+        p1 = document.getElementById("p1");
+        var str=p1.innerText;
+        if(!str.includes(newtext.wholeText))
+            p1.appendChild(newtext);
+
+        newtext = document.createTextNode(text + ',');
+        p13 = document.getElementById("p13");
+        var strr=p13.innerText;
+        if(!strr.includes(newtext.wholeText))
+            p13.appendChild(newtext);
+
+        value=document.getElementById('p13').innerText;
+            array = value.split(',').length;
+            newarray=array-1;
+            document.getElementById('sum3').value=document.getElementById('sumval3').value*newarray;
+
+    }
+
+
+
+
+
+// ADD VALUE FROM PREMIUM SUITE DIVISION TO SELECTED ROOMS ---------------------------------------------
+     {# fourth #}
+    function addTextNode4(text) {
+
+        newtext = document.createTextNode(text + ',');
+
+        p1 = document.getElementById("p1");
+        var str=p1.innerText;
+        if(!str.includes(newtext.wholeText))
+            p1.appendChild(newtext);
+
+        newtext = document.createTextNode(text + ',');
+        p14 = document.getElementById("p14");
+        var strr=p14.innerText;
+        if(!strr.includes(newtext.wholeText))
+            p14.appendChild(newtext);
+
+        value=document.getElementById('p14').innerText;
+            array = value.split(',').length;
+            newarray=array-1;
+            document.getElementById('sum4').value=document.getElementById('sumval4').value*newarray;
+
+    }
+
+
+
+
+
+
+// REMOVE VALUE FROM ROYAL SUITE DIVISION TO SELECTED ROOMS ---------------------------------------------
+    {# first #}
+    function removeLi1(text) {
+
+            p1 = document.getElementById("p1");
+            var orig = p1.innerText;
+            var str = orig.replace(text + ',', '');
+            p1.innerText = str;
+
+            p11 = document.getElementById("p11");
+            var origg = p11.innerText;
+            var strr = origg.replace(text + ',', '');
+            p11.innerText = strr;
+
+             document.getElementById('sum').value=document.getElementById('sum').value-document.getElementById('sumval').value;
+        }
+
+
+
+
+// REMOVE VALUE FROM ROYAL SUITE DIVISION TO SELECTED ROOMS ---------------------------------------------
+    {# second #}
+         function removeLi2(text) {
+
+            p1 = document.getElementById("p1");
+            var orig = p1.innerText;
+            var str = orig.replace(text + ',', '');
+            p1.innerText = str;
+
+            p12 = document.getElementById("p12");
+            var origg = p12.innerText;
+            var strr = origg.replace(text + ',', '');
+            p12.innerText = strr;
+
+            document.getElementById('sum2').value=document.getElementById('sum2').value-document.getElementById('sumval2').value;
+        }
+
+
+
+
+
+// REMOVE VALUE FROM ROYAL SUITE DIVISION TO SELECTED ROOMS ---------------------------------------------
+        {# third #}
+         function removeLi3(text) {
+
+            p1 = document.getElementById("p1");
+            var orig = p1.innerText;
+            var str = orig.replace(text + ',', '');
+            p1.innerText = str;
+
+            p13 = document.getElementById("p13");
+            var origg = p13.innerText;
+            var strr = origg.replace(text + ',', '');
+            p13.innerText = strr;
+
+            document.getElementById('sum3').value=document.getElementById('sum3').value-document.getElementById('sumval3').value;
+        }
+
+
+
+
+
+// REMOVE VALUE FROM ROYAL SUITE DIVISION TO SELECTED ROOMS ---------------------------------------------
+         {# four #}
+         function removeLi4(text) {
+
+            p1 = document.getElementById("p1");
+            var orig = p1.innerText;
+            var str = orig.replace(text + ',', '');
+            p1.innerText = str;
+
+            p14 = document.getElementById("p14");
+            var origg = p14.innerText;
+            var strr = origg.replace(text + ',', '');
+            p14.innerText = strr;
+
+            document.getElementById('sum4').value=document.getElementById('sum4').value-document.getElementById('sumval4').value;
+        }
+
+
+
+// TOTAL AMOUNT CALCULATION ---------------------------------------------
+        function passvaluetobtn1() {
+        document.getElementById('d').value = document.getElementById('p1').innerText;
+        document.getElementById('selectedrooms').value = document.getElementById('p1').innerText;
+        v1=document.getElementById('sum').value;
+             v2=document.getElementById('sum2').value;
+             v3=document.getElementById('sum3').value;
+             v4=document.getElementById('sum4').value;
+
+             document.getElementById('selectedrooms').value=document.getElementById('p1').innerText;
+             document.getElementById('totalamount').value=+v1 + +v2 + +v3 + +v4;
+
+             v1=document.getElementById('selectedrooms').value;
+        v2=v1.split(',');
+        v3=v2.length-1;
+        document.getElementById('numberofrooms').value=v3;
+
+
+    }
+
+</script>
+<script>
+    function addCommas(str) {
+        return str.replace(/^0+/, '').replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    function test() {
+        var val = document.getElementById('test').value;
+        document.getElementById('test').value = addCommas(val);
+    }
+
+
+    function validate() {
+        value = document.getElementById('cphone').value;
+        ind=value.charAt(0);
+        if (value.length < 10){
+            alert('Enter a 10 digit mobile number');
+        }
+
+        if (ind <7){
+            alert('Enter a valid mobile number');
+        }
+
+    }
+
+
+    function checkvalue() {
+        v1=document.getElementById('selectedrooms').value;
+        v2=v1.split(',');
+        v3=v2.length-1;
+        v4=document.getElementById('numberofrooms').value;
+        if (v3 != v4){
+            alert('Enter correct total no of rooms');
+            document.getElementById('numberofrooms').value=false;
+        }
+        else{
+            document.getElementById('numberofrooms').value=v4;
+        }
+
+    }
+
+    function isNumberKey(evt)
+       {
+          var charCode = (evt.which) ? evt.which : evt.keyCode;
+          if (charCode != 46 && charCode > 31
+            && (charCode < 48 || charCode > 57))
+             return false;
+
+          return true;
+       }
+
+</script>
+ <script>
+    $("#country").change(function () {
+      var url = $("#personForm").attr("data-cities-url");  // get the url of the `load_cities` view
+      var countryId = $(this).val();  // get the selected country ID from the HTML input
+
+      $.ajax({                       // initialize an AJAX request
+        url: url,                    // set the url of the request (= localhost:8000/hr/ajax/load-cities/)
+        data: {
+          'country': countryId       // add the country id to the GET parameters
+        },
+        success: function (data) {   // `data` is the return of the `load_cities` view function
+          $("#id_city").html(data);  // replace the contents of the city input with the data that came from the server
+        }
+      });
+
+    });
+  </script>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+ $('#guestname').keypress(function (e) {
+        var regex = new RegExp("^[a-zA-Z \s]+$");
+        var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+        if (regex.test(str)) {
+            return true;
+        }
+        else
+        {
+        e.preventDefault();
+        document.getElementById("g1").innerHTML="Enter Alpha value only";
+        return false;
+        }
+    });
+ </script>
+<script>
+    $('#guestcont').keypress(function (e) {
+           var regex = new RegExp("^[0-9\]+$");
+           var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+           if (regex.test(str)) {
+               return true;
+           }
+           else
+           {
+           e.preventDefault();
+           document.getElementById("g2").innerHTML="Enter Numeric value only";
+           return false;
+           }
+       });
+    </script>
+<script>
+    $('#guestage').keypress(function (e) {
+           var regex = new RegExp("^[0-9\]+$");
+           var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+           if (regex.test(str)) {
+               return true;
+           }
+           else
+           {
+           e.preventDefault();
+           document.getElementById("g4").innerHTML="Enter Numeric value only";
+           return false;
+           }
+       });
+</script>
+<script>
+    $('#guestcountry').keypress(function (e) {
+           var regex = new RegExp("^[a-zA-Z \s]+$");
+           var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+           if (regex.test(str)) {
+               return true;
+           }
+           else
+           {
+           e.preventDefault();
+           document.getElementById("g5").innerHTML="Enter Alpha value only";
+           return false;
+           }
+       });
+</script>
+<script>
+    $('#guestcity').keypress(function (e) {
+           var regex = new RegExp("^[a-zA-Z \s]+$");
+           var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+           if (regex.test(str)) {
+               return true;
+           }
+           else
+           {
+           e.preventDefault();
+           document.getElementById("g6").innerHTML="Enter Alpha value only";
+           return false;
+           }
+       });
+</script>
+
+
+<!-- footer -->
+<footer class="footer_style_2">
+  <div class="container-fuild">
+    <div class="row">
+
+      <div class="footer_blog">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="main-heading left_text">
+              <h2>Argon</h2>
+            </div>
+
+            <ul class="social_icons">
+              <li class="social-icon fb"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+              <li class="social-icon tw"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+              <li class="social-icon gp"><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <div class="main-heading left_text">
+              <h2>Additional links</h2>
+            </div>
+            <ul class="footer-menu">
+              <li><a href=""><i class="fa fa-angle-right"></i> About us</a></li>
+              <li><a href=""><i class="fa fa-angle-right"></i> Terms and conditions</a></li>
+              <li><a href=""><i class="fa fa-angle-right"></i> Privacy policy</a></li>
+              <li><a href=""><i class="fa fa-angle-right"></i> News</a></li>
+              <li><a href=""><i class="fa fa-angle-right"></i> Contact us</a></li>
+            </ul>
+          </div>
+
+
+        </div>
+      </div>
+      <div class="cprt">
+        <p>Argon © Copyrights 2019 </p>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- end footer -->
+<!-- js section -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<!-- menu js -->
+<script src="{% static 'js/menumaker.js' %}"></script>
+<!-- wow animation -->
+<script src="{% static 'js/wow.js' %}"></script>
+<!-- custom js -->
+<script src="{% static 'js/custom.js' %}"></script>
+<!-- revolution js files -->
+<script src="{% static 'revolution/js/jquery.themepunch.tools.min.js' %}"></script>
+<script src="{% static 'revolution/js/jquery.themepunch.revolution.min.js' %}"></script>
+<script src="{% static 'revolution/js/extensions/revolution.extension.actions.min.js' %}"></script>
+<script src="{% static 'revolution/js/extensions/revolution.extension.carousel.min.js' %}"></script>
+<script src="{% static 'revolution/js/extensions/revolution.extension.kenburn.min.js' %}"></script>
+<script src="{% static 'revolution/js/extensions/revolution.extension.layeranimation.min.js' %}"></script>
+<script src="{% static 'revolution/js/extensions/revolution.extension.migration.min.js' %}"></script>
+<script src="{% static 'revolution/js/extensions/revolution.extension.navigation.min.js' %}"></script>
+<script src="{% static 'revolution/js/extensions/revolution.extension.parallax.min.js' %}"></script>
+<script src="{% static 'revolution/js/extensions/revolution.extension.slideanims.min.js' %}"></script>
+<script src="{% static 'revolution/js/extensions/revolution.extension.video.min.js' %}"></script>
+<!-- map js -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+         // This example adds a marker to indicate the position of Bondi Beach in Sydney,
+         // Australia.
+         function initMap() {
+           var map = new google.maps.Map(document.getElementById('map'), {
+             zoom: 11,
+             center: {lat: 40.645037, lng: -73.880224},
+         styles: [
+                  {
+                    elementType: 'geometry',
+                    stylers: [{color: '#fefefe'}]
+                  },
+                  {
+                    elementType: 'labels.icon',
+                    stylers: [{visibility: 'off'}]
+                  },
+                  {
+                    elementType: 'labels.text.fill',
+                    stylers: [{color: '#616161'}]
+                  },
+                  {
+                    elementType: 'labels.text.stroke',
+                    stylers: [{color: '#f5f5f5'}]
+                  },
+                  {
+                    featureType: 'administrative.land_parcel',
+                    elementType: 'labels.text.fill',
+                    stylers: [{color: '#bdbdbd'}]
+                  },
+                  {
+                    featureType: 'poi',
+                    elementType: 'geometry',
+                    stylers: [{color: '#eeeeee'}]
+                  },
+                  {
+                    featureType: 'poi',
+                    elementType: 'labels.text.fill',
+                    stylers: [{color: '#757575'}]
+                  },
+                  {
+                    featureType: 'poi.park',
+                    elementType: 'geometry',
+                    stylers: [{color: '#e5e5e5'}]
+                  },
+                  {
+                    featureType: 'poi.park',
+                    elementType: 'labels.text.fill',
+                    stylers: [{color: '#9e9e9e'}]
+                  },
+                  {
+                    featureType: 'road',
+                    elementType: 'geometry',
+                    stylers: [{color: '#eee'}]
+                  },
+                  {
+                    featureType: 'road.arterial',
+                    elementType: 'labels.text.fill',
+                    stylers: [{color: '#3d3523'}]
+                  },
+                  {
+                    featureType: 'road.highway',
+                    elementType: 'geometry',
+                    stylers: [{color: '#eee'}]
+                  },
+                  {
+                    featureType: 'road.highway',
+                    elementType: 'labels.text.fill',
+                    stylers: [{color: '#616161'}]
+                  },
+                  {
+                    featureType: 'road.local',
+                    elementType: 'labels.text.fill',
+                    stylers: [{color: '#9e9e9e'}]
+                  },
+                  {
+                    featureType: 'transit.line',
+                    elementType: 'geometry',
+                    stylers: [{color: '#e5e5e5'}]
+                  },
+                  {
+                    featureType: 'transit.station',
+                    elementType: 'geometry',
+                    stylers: [{color: '#000'}]
+                  },
+                  {
+                    featureType: 'water',
+                    elementType: 'geometry',
+                    stylers: [{color: '#c8d7d4'}]
+                  },
+                  {
+                    featureType: 'water',
+                    elementType: 'labels.text.fill',
+                    stylers: [{color: '#b1a481'}]
+                  }
+                ]
+         });
+
+           var image = 'images/it_service/location_icon_map_cont.png';
+           var beachMarker = new google.maps.Marker({
+             position: {lat: 40.645037, lng: -73.880224},
+             map: map,
+             icon: image
+           });
+         }
+      </script>
+<!-- google map js -->
+<script src=""></script>
+<!-- end google map js -->
+    </div>
+</body>
+</html>

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- basic -->
+  {% load static %}
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- mobile metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<!-- site metas -->
+<title>Argon</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="">
+<!-- site icons -->
+<link rel="icon" href="{% static 'images/fevicon/fevicon.png' %}" type="image/gif" />
+<!-- bootstrap css -->
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+<!-- Site css -->
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+<!-- responsive css -->
+<link rel="stylesheet" href="{% static 'css/responsive.css' %}" />
+<!-- colors css -->
+<link rel="stylesheet" href="{% static 'css/colors1.css' %}" />
+<!-- custom css -->
+<link rel="stylesheet" href="{% static 'css/custom.css' %}" />
+<!-- wow Animation css -->
+<link rel="stylesheet" href="{% static 'css/animate.css' %}" />
+<!-- revolution slider css -->
+<link rel="stylesheet" type="text/css" href="{% static 'revolution/css/settings.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'revolution/css/layers.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'revolution/css/navigation.css' %}" />
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+</head>
+<body id="default_theme" class="it_service">
+<!-- loader -->
+<div class="bg_load"> <img class="loader_animation" src="{% static 'images/loaders/loader_1.png' %}" alt="#" /> </div>
+<!-- end loader -->
+<!-- header -->
+<header id="default_header" class="header_style_1">
+  <!-- header top -->
+  <div class="header_top">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="full">
+            <div class="topbar-left">
+              <ul class="list-inline">
+                <li> <span class="topbar-label"><i class="fa  fa-home"></i></span> <span class="topbar-hightlight">Argon</span> </li>
+                <li> <span class="topbar-label"><i class="fa fa-envelope-o"></i></span> <span class="topbar-hightlight"><a href="">argon.com</a></span> </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 right_section_header_top">
+          <div class="float-left">
+            <div class="social_icon">
+              <ul class="list-inline">
+
+              </ul>
+            </div>
+          </div>
+          <div class="float-right">
+            <div class="make_appo"> <a class="btn white_btn" href="aalogout" onclick="return confirm('ARE YOU SURE?')">Logout</a> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end header top -->
+  <!-- header bottom -->
+  <div class="header_bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+          <!-- logo start -->
+
+          <div class="logo"> <a href=""><img src="{% static 'images/logos/blue.png' %}" alt="logo" /></a> </div>
+          <!-- logo end -->
+        </div>
+        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+          <!-- menu start -->
+          <div class="menu_side">
+            <div id="navbar_menu">
+              <ul class="first-ul">
+                <li> <a  href="agentdashboard">Dashboard</a>
+
+                </li>
+                <li><a href="agentbooking">Booking</a></li>
+                <li><a class="active" href="agentbookingdetail">Booking Details</a></li>
+                <li> <a href="agentupdate">Update Profile</a>
+
+                </li>
+
+                <li> <a href="#"></a>
+
+                </li>
+                <li> <a href=""></a>
+
+                </li>
+                <li> <a href=""></a>
+
+                </li>
+              </ul>
+            </div>
+
+          </div>
+          <!-- menu end -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- header bottom end -->
+</header>
+<!-- end header -->
+<!-- section -->
+
+
+
+<!-- end section -->
+<!-- section -->
+<label style="color:lightblue; margin-left:15px;">{{usersession.agentname}}</label>
+<div class="section padding_layout_1">
+  <div class="container">
+    <div class="row">
+        <div class="full text_align_center margin_bottom_30">
+          <div class="center">
+
+
+<div class="table-responsive">
+              <table class="table align-items-center table-flush">
+                {% csrf_token %}
+                <thead class="thead-light" style="border-color: dodgerblue;" id="js-serial">
+                  <tr>
+                    <th scope="col" class="sort" >Name</th>
+                    <th scope="col" class="sort" >Contact Number</th>
+                    <th scope="col" class="sort" >E-mail ID</th>
+                    <th scope="col" class="sort" >Age</th>
+                    <th scope="col" class="sort" >Country</th>
+                    <th scope="col" class="sort" >City</th>
+                    <th scope="col" class="sort" >Room numbers</th>
+                    <th scope="col" class="sort" >Check-in</th>
+                    <th scope="col" class="sort" >Check-out</th>
+                    <th scope="col" class="sort" >Manage</th>
+                  </tr>
+                </thead>
+
+
+                {% for ab in abook %}
+
+                <tbody>
+                <tr>
+
+                  <td>
+                    {{ab.fullname}}
+                  </td>
+                  <td>
+                    {{ab.contactno}}
+                  </td>
+                  <td>
+                    {{ab.emailg}}
+                  </td>
+                  <td>
+                    {{ab.age}}
+                  </td>
+                  <td>
+                    {{ab.country}}
+                  </td>
+                  <td>
+                    {{ab.city}}
+                  </td>
+                  <td>
+                   {{ab.roomid}}
+                  </td>
+                  <td>
+                    {{ab.checkin}}
+                  </td>
+                  <td>
+                    {{ab.checkout}}
+                  </td>
+                  <td>
+                    <a href="editabooking/{{ab.bookingid}}"  style="background-color: dodgerblue; padding: 2px 5px 5px 5px;">UPDATE</a>
+                    <a href="agentbookingdetail/{{ab.bookingid}}" style="background-color: rgb(179, 104, 233); padding: 2px 5px 5px 5px;"  onclick="return confirm('Are you sure???')">DELETE</a>
+                  </td>
+
+                </tr>
+                </tbody>
+                {% endfor %}
+              </table>
+</div>
+
+
+          </div>
+        </div>
+    </div>
+    </div>
+  </div>
+
+
+
+<!-- footer -->
+<footer class="footer_style_2">
+  <div class="container-fuild">
+    <div class="row">
+
+      <div class="footer_blog">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="main-heading left_text">
+              <h2>Argon</h2>
+            </div>
+
+            <ul class="social_icons">
+              <li class="social-icon fb"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+              <li class="social-icon tw"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+              <li class="social-icon gp"><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <div class="main-heading left_text">
+              <h2>Additional links</h2>
+            </div>
+            <ul class="footer-menu">
+              <li><a href=""><i class="fa fa-angle-right"></i> About us</a></li>
+              <li><a href=""><i class="fa fa-angle-right"></i> Terms and conditions</a></li>
+              <li><a href=""><i class="fa fa-angle-right"></i> Privacy policy</a></li>
+              <li><a href=""><i class="fa fa-angle-right"></i> News</a></li>
+              <li><a href=""><i class="fa fa-angle-right"></i> Contact us</a></li>
+            </ul>
+          </div>
+
+
+        </div>
+      </div>
+      <div class="cprt">
+        <p>Argon © Copyrights 2019 </p>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- end footer -->
+<!-- js section -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<!-- menu js -->
+<script src="{% static 'js/menumaker.js' %}"></script>
+<!-- wow animation -->
+<script src="{% static 'js/wow.js' %}"></script>
+<!-- custom js -->
+<script src="{% static 'js/custom.js' %}"></script>
+<!-- revolution js files -->
+<script src="{% static 'revolution/js/jquery.themepunch.tools.min.js' %}"></script>
+<script src="{% static 'revolution/js/jquery.themepunch.revolution.min.js' %}"></script>
+<script src="{% static 'revolution/js/extensions/revolution.extension.actions.min.js' %}"></script>
+<script src="{% static 'revolution/js/extensions/revolution.extension.carousel.min.js' %}"></script>
+<script src="{% static 'revolution/js/extensions/revolution.extension.kenburn.min.js' %}"></script>
+<script src="{% static 'revolution/js/extensions/revolution.extension.layeranimation.min.js' %}"></script>
+<script src="{% static 'revolution/js/extensions/revolution.extension.migration.min.js' %}"></script>
+<script src="{% static 'revolution/js/extensions/revolution.extension.navigation.min.js' %}"></script>
+<script src="{% static 'revolution/js/extensions/revolution.extension.parallax.min.js' %}"></script>
+<script src="{% static 'revolution/js/extensions/revolution.extension.slideanims.min.js' %}"></script>
+<script src="{% static 'revolution/js/extensions/revolution.extension.video.min.js' %}"></script>
+<!-- map js -->
+<script>
+         // This example adds a marker to indicate the position of Bondi Beach in Sydney,
+         // Australia.
+         function initMap() {
+           var map = new google.maps.Map(document.getElementById('map'), {
+             zoom: 11,
+             center: {lat: 40.645037, lng: -73.880224},
+         styles: [
+                  {
+                    elementType: 'geometry',
+                    stylers: [{color: '#fefefe'}]
+                  },
+                  {
+                    elementType: 'labels.icon',
+                    stylers: [{visibility: 'off'}]
+                  },
+                  {
+                    elementType: 'labels.text.fill',
+                    stylers: [{color: '#616161'}]
+                  },
+                  {
+                    elementType: 'labels.text.stroke',
+                    stylers: [{color: '#f5f5f5'}]
+                  },
+                  {
+                    featureType: 'administrative.land_parcel',
+                    elementType: 'labels.text.fill',
+                    stylers: [{color: '#bdbdbd'}]
+                  },
+                  {
+                    featureType: 'poi',
+                    elementType: 'geometry',
+                    stylers: [{color: '#eeeeee'}]
+                  },
+                  {
+                    featureType: 'poi',
+                    elementType: 'labels.text.fill',
+                    stylers: [{color: '#757575'}]
+                  },
+                  {
+                    featureType: 'poi.park',
+                    elementType: 'geometry',
+                    stylers: [{color: '#e5e5e5'}]
+                  },
+                  {
+                    featureType: 'poi.park',
+                    elementType: 'labels.text.fill',
+                    stylers: [{color: '#9e9e9e'}]
+                  },
+                  {
+                    featureType: 'road',
+                    elementType: 'geometry',
+                    stylers: [{color: '#eee'}]
+                  },
+                  {
+                    featureType: 'road.arterial',
+                    elementType: 'labels.text.fill',
+                    stylers: [{color: '#3d3523'}]
+                  },
+                  {
+                    featureType: 'road.highway',
+                    elementType: 'geometry',
+                    stylers: [{color: '#eee'}]
+                  },
+                  {
+                    featureType: 'road.highway',
+                    elementType: 'labels.text.fill',
+                    stylers: [{color: '#616161'}]
+                  },
+                  {
+                    featureType: 'road.local',
+                    elementType: 'labels.text.fill',
+                    stylers: [{color: '#9e9e9e'}]
+                  },
+                  {
+                    featureType: 'transit.line',
+                    elementType: 'geometry',
+                    stylers: [{color: '#e5e5e5'}]
+                  },
+                  {
+                    featureType: 'transit.station',
+                    elementType: 'geometry',
+                    stylers: [{color: '#000'}]
+                  },
+                  {
+                    featureType: 'water',
+                    elementType: 'geometry',
+                    stylers: [{color: '#c8d7d4'}]
+                  },
+                  {
+                    featureType: 'water',
+                    elementType: 'labels.text.fill',
+                    stylers: [{color: '#b1a481'}]
+                  }
+                ]
+         });
+
+           var image = 'images/it_service/location_icon_map_cont.png';
+           var beachMarker = new google.maps.Marker({
+             position: {lat: 40.645037, lng: -73.880224},
+             map: map,
+             icon: image
+           });
+         }
+      </script>
+
+<!-- google map js -->
+<script src=""></script>
+<!-- end google map js -->
+</body>
+</html>
