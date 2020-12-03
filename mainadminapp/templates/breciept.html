@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="UTF-8">
+    <title>****************************************************************************************</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
+  <style>
+    .col1{
+		display: grid;
+		grid-template-columns: 7fr 3fr ;
+	}
+  </style>
+</head>
+<body>
+<form id="form1" runat="server">
+<div id="content">
+<div class="row" style="margin-left:70px; margin-right:70px;">
+<h3 align="center"><b>ARGON</b></h3>
+<h6>AM-MR-MD-024-00                                                                                                                                                                                         www.argon.in</h6>
+<h4 align="center">Chithirapuram,Munnar,Idukki District Kerala,Pin 685565, 685565 Munnar, India <br/>
+E-mail : reservations@argon.in   Contact us: 1-800-419-6444; +91124 4816900;</h4>
+    <b><hr/><br></b><br/>
+<div class="pl-lg-4">
+                  <div class="row" style="margin-left:180px;">
+
+                    <div class="col1" style="margin-bottom:10px;">
+                      <div>
+                        <label>Name: </label>
+                      </div>
+                      <div>
+                        <label>{{recbook.fullname}}</label>
+                      </div>
+                    </div>
+                      <div class="col1" style="margin-bottom:10px;">
+                      <div class="form-group">
+                        <label class="form-control-label" >Contact: </label>
+                      </div>
+                        <div>
+                          <label>{{recbook.contactno}}</label>
+                        </div>
+                    </div>
+                      <div class="col1" style="margin-bottom:10px;">
+                      <div class="form-group">
+                        <label class="form-control-label" >Gender: </label>
+                      </div>
+                        <div>
+                          <label>{{recbook.gender}}</label>
+                        </div>
+                    </div>
+                      <div class="col1" style="margin-bottom:10px;">
+                      <div class="form-group">
+                        <label class="form-control-label" >Age: </label>
+                      </div>
+                        <div>
+                          <label>{{recbook.age}}</label>
+                        </div>
+                    </div>
+                      <div class="col1" style="margin-bottom:10px;">
+                      <div class="form-group">
+                        <label class="form-control-label" >Address: </label>
+                      </div>
+                        <div>
+                          <label>{{recbook.address}}</label>
+                        </div>
+                    </div>
+                      <div class="col1" style="margin-bottom:10px;">
+                      <div class="form-group">
+                        <label class="form-control-label" >City: </label>
+                      </div>
+                        <div>
+                          <label>{{recbook.city}}</label>
+                        </div>
+                    </div>
+                      <div class="col1" style="margin-bottom:10px;">
+                      <div class="form-group">
+                        <label class="form-control-label" >Country: </label>
+                      </div>
+                        <div>
+                          <label>{{recbook.country}}</label>
+                        </div>
+                    </div>
+                      <div class="col1" style="margin-bottom:10px;">
+                      <div class="form-group">
+                        <label class="form-control-label" >Pincode: </label>
+                      </div>
+                        <div>{{recbook.pincode}}</div>
+                    </div>
+
+                  </div></div>
+</br>
+    <label style="margin-left:170px;"><b>BOOKING INFORMATION:</b></label><br/><hr/>
+    <div class="pl-lg-4">
+                  <div class="row" style="margin-left:170px;">
+
+                    <div class="col1" style="margin-bottom:10px;">
+                      <div class="form-group">
+                        <label class="form-control-label" >No of Rooms: </label>
+                      </div>
+                      <div>
+                        <label>{{recbook.noofrooms}}</label>
+                      </div>
+                    </div>
+                      <div class="col1" style="margin-bottom:10px;">
+                      <div class="form-group">
+                        <label class="form-control-label" >Room No: </label>
+                      </div>
+                        <div>
+                          <label>{{recbook.roomid}}</label>
+                        </div>
+                    </div>
+                      <div class="col1" style="margin-bottom:10px;">
+                      <div class="form-group">
+                        <label class="form-control-label" >Check-in: </label>
+                      </div>
+                        <div>
+                          <label>{{recbook.checkin}}</label>
+                        </div>
+                    </div>
+                       <div class="col1" style="margin-bottom:10px;">
+                      <div class="form-group">
+                        <label class="form-control-label" >Check-out: </label>
+                      </div>
+                         <div>
+                           <label>{{recbook.checkout}}</label>
+                         </div>
+                    </div>
+                       <div class="col1" style="margin-bottom:10px;">
+                      <div class="form-group">
+                        <label class="form-control-label" >GRC No: </label>
+                      </div>
+                         <div>
+                           <label>{{recbook.grc}}</label>
+                         </div>
+                    </div>
+                       <div class="col1" style="margin-bottom:10px;">
+                      <div class="form-group">
+                        <label class="form-control-label" >No of Adults: </label>
+                      </div>
+                         <div>
+                           <label>{{recbook.noofadults}}</label>
+                         </div>
+                    </div>
+                      <div class="col1" style="margin-bottom:10px;">
+                      <div class="form-group">
+                        <label class="form-control-label" >No of Childrens: </label>
+                      </div>
+                        <div>
+                          <label>{{recbook.noofchild}}</label>
+                        </div>
+                    </div>
+                      <div class="col1" style="margin-bottom:10px;">
+                      <div class="form-group">
+                        <label class="form-control-label" >Advance Amount: </label>
+                      </div>
+                        <div>
+                          <label>{{recbook.adamount}}</label>
+                        </div>
+                    </div>
+                      <div class="col1" style="margin-bottom:10px;">
+                      <div class="form-group">
+                        <label class="form-control-label" >Balance Amount: </label>
+                      </div>
+                        <div>
+                          <label>{{recbook.balanceamount}}</label>
+                        </div>
+                    </div>
+
+
+<hr/>
+                     <div class="col1" style="margin-bottom:10px;">
+                      <div class="form-group">
+                        <label class="form-control-label" >Total Amount: </label>
+                      </div>
+                       <div>
+                         <label>{{recbook.totalamount}}</label>
+                       </div>
+                    </div>
+                  </div></div>
+
+<br/><hr/>
+<h5>*
+Guest Contact Centre (Operational Hours: 08:00 AM to 08:00 PM IST)<br/>
+Contact US: 1-800-419-6444 ; 1-800-102-2333<br/>
++91124 4816900; +91124 6718000<br/>
+Email: reservations@itchotels.in
+*</h5>
+
+<!-- jQuery library -->
+
+
+</div>
+  </div>
+ <div class="card-footer" style="text-align: center;background-color: white;">
+   <button class="btn btn-primary" type="button"
+           style="width: 130px;margin-top: 70px;margin-bottom: 30px;border: none;background: rgb(15,181,159);"
+     value="Print Div Contents" id="btnPrint">Print</button></div>
+    <a href="http://127.0.0.1:8000/branchadmin/bbooking" class="card-footer"
+       style="width: 130px;margin-top: 70px;margin-bottom: 30px;border: none;background: rgb(15,181,159);">Back</a>
+
+</form>
+</body>
+<script type="text/javascript">
+    $("#btnPrint").click(function () {
+        let doc = new jsPDF('p', 'pt', 'a4');
+        doc.addHTML(document.body, function () {
+            doc.save('testpoc.pdf');
+        });
+    });
+</script>
+</html>
